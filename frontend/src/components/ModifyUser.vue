@@ -47,6 +47,8 @@
 </template>
 
 <script>
+import { API_URL } from "../config.js";
+
 export default {
   data() {
     return {
@@ -67,7 +69,7 @@ export default {
   methods: {
     // Función para cargar los detalles del usuario desde la API
     loadUserDetails(userId) {
-      fetch(`http://localhost:5000/users/${userId}`)
+      fetch(`${API_URL}/users/${userId}`)
         .then((response) => response.json())
         .then((data) => {
           // Asignar los valores obtenidos a los campos
@@ -82,7 +84,7 @@ export default {
 
     // Guardar los cambios del usuario
     saveUser() {
-      fetch(`http://localhost:5000/users/${this.userId}`, {
+      fetch(`${API_URL}/users/${this.userId}`, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",
@@ -106,7 +108,7 @@ export default {
 
     // Eliminar usuario
     deleteUser() {
-      fetch(`http://localhost:5000/users/${this.userId}`, {
+      fetch(`${API_URL}/users/${this.userId}`, {
         method: "DELETE",
       })
         .then(() => {

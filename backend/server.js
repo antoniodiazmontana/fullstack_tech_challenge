@@ -40,7 +40,7 @@ app.get("/users/:id", async (req, res) => {
   }
 });
 
-app.post("/adduser", async (req, res) => {
+app.post("/users", async (req, res) => {
   const { name, email, credits } = req.body;
   try {
     const result = await pool.query(
@@ -54,7 +54,6 @@ app.post("/adduser", async (req, res) => {
   }
 });
 
-// Modificar un usuario
 app.put("/users/:id", async (req, res) => {
   const { id } = req.params;
   const { name, email, credits } = req.body;
@@ -76,7 +75,6 @@ app.put("/users/:id", async (req, res) => {
   }
 });
 
-// Eliminar un usuario
 app.delete("/users/:id", async (req, res) => {
   const { id } = req.params;
 

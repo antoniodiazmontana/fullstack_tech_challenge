@@ -27,6 +27,8 @@
 </template>
 
 <script>
+import { API_URL } from "../config.js";
+
 export default {
   data() {
     return {
@@ -47,7 +49,7 @@ export default {
   },
   methods: {
     loadUsers() {
-      fetch("http://localhost:5000/users")
+      fetch(`${API_URL}/users`)
         .then((response) => response.json())
         .then((data) => {
           this.users = data;
